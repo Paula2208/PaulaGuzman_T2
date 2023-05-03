@@ -1,5 +1,5 @@
 # Entries ##############
-problem="1a"
+problem="2d"
 #######################
 gcc ./src/resolver/Generator$problem.c -o ./src/out/Generator$problem
 ./src/out/Generator$problem

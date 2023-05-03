@@ -11,30 +11,31 @@ double uniform_random() {
 }
 
 double first_section(double rnd) {
-  //As defined on document
-  return (5.0/4.0) + sqrt((25.0/16.0) - (2*rnd));
+  //As defined in document
+  return sqrt(2.0 * (rnd + 32.0));
 }
 
 double second_section(double rnd) {
-  //As defined on document
-  return (4*rnd) - 2;
+  //As defined in document
+  return sqrt((-2.0*rnd)+81.0);
 }
 
 double generator() {
-  //Generates a new random variate
-  double uniform = uniform_random();
-  printf("%f,", uniform);
-  if (uniform <= 0.75) {
-    return first_section(uniform);
+  //Gives a random variate
+  double uniform1 = uniform_random();
+  double uniform2 = uniform_random();
+  printf("%f,", uniform2);
+  if(uniform1 <= 1.0/2.0){
+    return first_section(uniform2);
   }
-  return second_section(uniform);
+  return second_section(uniform2);
 }
 
 int main() {
   srand(time(NULL));
 
   for (int i = 0; i < 1000; ++i) {
-    printf("%f,,\n", generator());
+    printf("%f\n", generator());
   }
 
   return 0;
